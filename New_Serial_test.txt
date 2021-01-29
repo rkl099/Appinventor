@@ -1,0 +1,21 @@
+New serial component in appinventor.
+
+I have done the following steps:
+    re-refactored the physicaloid library that is used in my extension, to make it compatible with the original library.
+    make an extension that is using this library, compile some test programs to app:s to verify that the new library has the same functionality.
+    make modification to my local appinventor Serial.java to include the new functions.
+    Make an app with my local build server and verify that it works the same as my extension
+
+The new library can directly replace the old, and adds support for more serial adapters and resolve a number of issues.
+
+The new Serial.java adds a number of functions and is functionally the same as my extension.
+
+I have excluded the upload of hex-files to Arduino (just comment out in the code. Can be activated again). I don’t think it should be in the serial component, maybe in a separate extension.
+
+Changes to the old Serial.java as discussed in the thread are:
+   Remove serial in method names.
+   emove set and test buffer size,
+   Rename PrintLn() to WriteLn() to be consistent with ReadLn().
+
+I will at some time look at how I can add an AfterRead() that is a true call-back from the library to avoid the lock of the UI during large transfers. There are also some functions that I have not tested yet, bluetooth and wifi.
+
